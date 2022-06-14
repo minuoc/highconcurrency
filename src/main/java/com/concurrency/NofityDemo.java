@@ -6,7 +6,9 @@ package com.concurrency;
  */
 public class NofityDemo {
     public static void main(String[] args) {
-        Factory factory = new Factory();
+//        Factory factory = new Factory();
+
+        FactoryByCondition factory = new FactoryByCondition();
 
         //线程假死 状态
         for (int i = 0; i < 10; i++) {
