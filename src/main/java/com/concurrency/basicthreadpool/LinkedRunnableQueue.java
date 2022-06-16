@@ -28,17 +28,31 @@ public class LinkedRunnableQueue implements RunnableQueue{
         synchronized (runnableList) {
             if (runnableList.size() >= limit) {
                 denyPolicy.reject(runnable,threadPool);
+            } else {
+                runnableList.addLast(runnable);
+                runnableList.notifyAll();
             }
         }
     }
 
     @Override
     public Runnable take() throws InterruptedException {
-        return null;
+        synchronized (runnableList) {
+            while (runnableList.isEmpty()) {
+                try {
+                    runnableList.wait();
+                } catch (InterruptedException e) {
+                    throw e;
+                }
+            }
+        }
+        return runnableList.removeFirst();
     }
 
     @Override
     public int size() {
-        return 0;
+        synchronized (runnableList) {
+            return runnableList.size();
+        }
     }
 }

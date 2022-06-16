@@ -11,10 +11,11 @@ public class InternalTask implements Runnable{
     //运行标记
     private volatile boolean running = true;
 
-    public InternalTask(RunnableQueue runnableQueue, boolean running) {
+
+    public InternalTask(RunnableQueue runnableQueue) {
         this.runnableQueue = runnableQueue;
-        this.running = running;
     }
+
 
     @Override
     public void run() {
