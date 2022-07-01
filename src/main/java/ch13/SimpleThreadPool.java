@@ -1,15 +1,15 @@
 package ch13;
 
-public class SimleThreadPool {
+public class SimpleThreadPool {
     private final int size;
 
     private final static int DEFAULT_SIZE = 10;
 
-    public SimleThreadPool() {
+    public SimpleThreadPool() {
         this(DEFAULT_SIZE);
     }
 
-    public SimleThreadPool(int size) {
+    public SimpleThreadPool(int size) {
         this.size = size;
         init();
     }

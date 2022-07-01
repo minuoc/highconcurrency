@@ -40,7 +40,9 @@ public class LockInterruptibly implements Runnable{
                 System.out.println(Thread.currentThread().getName() + "释放了锁");
             }
         } catch (InterruptedException e){
+            // 这里 其中一个线程获得到了锁，另一个线程去获取锁 但是
             System.out.println(Thread.currentThread().getName() + "获得锁期间被中断了");
         }
+
     }
 }

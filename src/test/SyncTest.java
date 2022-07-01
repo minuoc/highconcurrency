@@ -1,7 +1,5 @@
-package test;
-
-import java.util.ArrayList;
 import java.util.concurrent.locks.LockSupport;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class SyncTest {
     static Thread t1 = null;
@@ -35,6 +33,8 @@ public class SyncTest {
         t1.start();
         t2.start();
 
+
+        ReentrantLock lock = new ReentrantLock();
 
 
     }

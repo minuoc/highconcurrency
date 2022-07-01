@@ -12,7 +12,7 @@ public class ThreadInterrupt {
 
 
         t.start();
-        Thread.sleep(100);
+        Thread.sleep(100); //sleep 将 interrupted 设置为了 false
         System.out.println(t.isInterrupted());
         t.interrupt();
         System.out.println(t.isInterrupted());
