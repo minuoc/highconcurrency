@@ -2,9 +2,9 @@ package test;
 
 public class ThreadInterrupt {
     public static void main(String[] args) throws InterruptedException {
-        Thread t = new Thread(){
-            public void run(){
-                while(true){
+        Thread t = new Thread() {
+            public void run() {
+                while (true) {
 
                 }
             }
@@ -16,5 +16,7 @@ public class ThreadInterrupt {
         System.out.println(t.isInterrupted());
         t.interrupt();
         System.out.println(t.isInterrupted());
+
+
     }
 }

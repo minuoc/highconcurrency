@@ -10,9 +10,9 @@ public class ThreadGroupExampleInterrupt {
         mt.setName("B");
         mt.start();
 
-        try{
+        try {
             Thread.sleep(2000);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -22,12 +22,12 @@ public class ThreadGroupExampleInterrupt {
     }
 
     public static class MyThread extends Thread {
-        public void run(){
-            synchronized ("A"){
+        public void run() {
+            synchronized ("A") {
                 System.out.println(getName() + " aboutg to wait.");
                 try {
                     "A".wait();
-                }catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     System.out.println(getName() + " interrupted.");
                 }
                 System.out.println(getName() + " terminating.");
