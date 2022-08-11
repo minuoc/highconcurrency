@@ -19,14 +19,14 @@ public class PrintABCUsingLock {
     }
 
     private void printLetter(String name, int targetNum){
-        for (int i = 0; i < times; ) {
+       for (int i = 0; i < times;){
+
             lock.lock();
             try{
                 if (state % 3 == targetNum) {
                     state ++;
-                    i ++;
                     System.out.println(name);
-
+                    i++; //这里 i++ 是用来跳出循环的。
                 }
             } finally {
                 lock.unlock();

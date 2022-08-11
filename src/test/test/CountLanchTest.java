@@ -17,9 +17,7 @@ public class CountLanchTest {
 
         }, "t1").start();
 
-
         new Thread(() -> {
-
             for (char c : aC) {
                 System.out.println(c);
             }

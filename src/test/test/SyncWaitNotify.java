@@ -1,7 +1,5 @@
 package test;
 
-import java.util.concurrent.locks.LockSupport;
-
 public class SyncWaitNotify {
 
     private static volatile boolean t2Started = false;
@@ -14,35 +12,22 @@ public class SyncWaitNotify {
         char[] aC = "123456789".toCharArray();
 
         new Thread(() -> {
-            synchronized (o){
-                for(char c : aI) {
+            synchronized (o) {
+                for (char c : aI) {
                     System.out.println(c);
-
-
                 }
             }
 
-
-        },"t1").start();
+        }, "t1").start();
 
         new Thread(() -> {
-
-            synchronized (o){
-                for(char c : aC) {
+            synchronized (o) {
+                for (char c : aC) {
                     System.out.println(c);
-
-
-
-                        o.notify();
-
-
-
-
+                    o.notify();
                 }
             }
-
-
-        },"t2").start();
+        }, "t2").start();
 
 
     }

@@ -1,7 +1,8 @@
 package com.chen.blockqueue;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 
 /**
  * @author chenlufeng
