@@ -16,11 +16,11 @@ public class PrintAbcUsingSemaphore {
     private void printLetter(String name,Semaphore current, Semaphore next) {
         for (int i = 0; i < times; i++) {
             try {
-                System.out.println("111" + Thread.currentThread().getName());
+//                System.out.println("111" + Thread.currentThread().getName());
                 current.acquire();
                 System.out.println(name);
                 next.release();
-                System.out.println("222" + Thread.currentThread().getName());
+//                System.out.println("222" + Thread.currentThread().getName());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -30,7 +30,7 @@ public class PrintAbcUsingSemaphore {
 
 
     public static void main(String[] args) {
-        PrintAbcUsingSemaphore printer = new PrintAbcUsingSemaphore(1);
+        PrintAbcUsingSemaphore printer = new PrintAbcUsingSemaphore(10);
 
         new Thread(() -> {
             printer.printLetter("A",  semaphoreA, semaphoreB);
