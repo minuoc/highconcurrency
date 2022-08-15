@@ -16,16 +16,16 @@ public class NumAndLetterPrinter {
     public static void main(String[] args) {
         letterThread = new Thread(() -> {
             for (int i = 0; i < 26; i++) {
-                System.out.println((char)('A' + i));
+                System.out.print((char)('A' + i));
                 LockSupport.unpark(numThread);
                 LockSupport.park();
             }
         },"letterThread");
 
 
-        letterThread = new Thread(() -> {
+        numThread = new Thread(() -> {
             for (int i = 0; i < 26; i++) {
-                System.out.println((char)('A' + i));
+                System.out.print(i+1);
                 LockSupport.park();
                 LockSupport.unpark(letterThread);
             }
